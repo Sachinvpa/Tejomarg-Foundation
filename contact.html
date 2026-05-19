@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Contact — Tejomarg Foundation</title>
+<meta name="description" content="Contact Tejomarg Foundation — for colleges, CSR partners, and government departments."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<style>
+  .contact-hero {
+    background:
+      radial-gradient(700px 320px at 90% 10%, rgba(255,112,10,0.10), transparent 70%),
+      var(--tm-paper);
+    padding: 88px 0 56px;
+    border-bottom: 1px solid var(--tm-gray-mist);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 80px;
+    padding: 80px 0 100px;
+    align-items: start;
+  }
+
+  /* Left column */
+  .contact-info h2 {
+    font-size: clamp(30px, 3.6vw, 44px);
+    font-weight: 700;
+    margin-bottom: 26px;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+  .contact-info h2 .accent { color: var(--tm-orange); }
+  .contact-info .intro {
+    color: var(--tm-gray-deep);
+    margin-bottom: 44px;
+    font-size: 16.5px;
+    line-height: 1.65;
+  }
+
+  .contact-block {
+    border-top: 1px solid var(--tm-gray-mist);
+    padding: 24px 0;
+  }
+  .contact-block:last-of-type { border-bottom: 1px solid var(--tm-gray-mist); }
+  .contact-block .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tm-orange);
+    margin-bottom: 10px;
+  }
+  .contact-block .value {
+    font-family: var(--font-display);
+    font-size: 21px;
+    color: var(--tm-ink);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+  .contact-block .value a { color: var(--tm-ink); }
+  .contact-block .value a:hover { color: var(--tm-orange); }
+  .contact-block .sub {
+    font-size: 13px;
+    color: var(--tm-gray);
+    margin-top: 8px;
+  }
+
+  .routing {
+    margin-top: 52px;
+    padding: 32px;
+    background: var(--tm-ink);
+    color: var(--tm-paper);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .routing::before {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,112,10,0.30), transparent 65%);
+    border-radius: 50%;
+  }
+  .routing h4 {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tm-orange);
+    margin-bottom: 18px;
+    font-weight: 700;
+    position: relative;
+  }
+  .routing ul { list-style: none; padding: 0; margin: 0; position: relative; }
+  .routing li {
+    padding: 12px 0;
+    font-size: 14px;
+    color: #B5B5B5;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .routing li:first-child { border-top: 0; }
+  .routing li strong { color: var(--tm-paper); font-weight: 600; }
+
+  /* Form column */
+  .contact-form-wrap {
+    background: var(--tm-paper);
+    border: 1.5px solid var(--tm-gray-mist);
+    border-radius: 20px;
+    padding: 52px 48px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-form-wrap::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--tm-orange);
+  }
+  .contact-form-wrap h3 {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .contact-form-wrap > p {
+    color: var(--tm-gray);
+    margin-bottom: 36px;
+    font-size: 15px;
+  }
+  .field { margin-bottom: 22px; }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--tm-ink);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .field label .req { color: var(--tm-orange); }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1.5px solid var(--tm-gray-mist);
+    background: var(--tm-paper);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--tm-ink);
+    transition: all .2s;
+  }
+  .field textarea { min-height: 140px; resize: vertical; font-family: var(--font-body); }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--tm-orange);
+    box-shadow: 0 0 0 4px rgba(255,112,10,0.12);
+  }
+  .field select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23FF700A' d='M6 8L0 0h12z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 26px;
+    font-size: 15px;
+  }
+  .form-note {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--tm-gray);
+    text-align: center;
+    line-height: 1.5;
+  }
+  #form-status {
+    display: none;
+    background: var(--tm-orange-tint);
+    border: 1.5px solid var(--tm-orange);
+    color: var(--tm-orange-deep);
+    padding: 22px 26px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  #form-status strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--tm-ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 920px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; padding: 48px 0 72px; }
+    .field-row { grid-template-columns: 1fr; gap: 0; }
+    .contact-form-wrap { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Tejomarg Foundation">
+      <img src="logo.svg" alt="Tejomarg Foundation"/>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="initiatives.html">Initiatives</a>
+      <a href="impact.html">Impact</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="btn-nav">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="contact-hero">
+  <div class="container">
+    <span class="eyebrow reveal">Get in Touch</span>
+    <h1 class="reveal" style="font-size: clamp(44px, 6.5vw, 80px); font-weight: 800; max-width: 1000px; letter-spacing: -0.03em; line-height: 1.0;">Begin a <span style="color: var(--tm-orange);">conversation.</span></h1>
+    <p class="reveal" style="font-size: 19px; color: var(--tm-gray-deep); max-width: 720px; margin-top: 28px;">Whether you represent an institution, a CSR partner, or a government department — we'd be glad to hear from you.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT GRID ============ -->
+<section class="container">
+  <div class="contact-grid">
+
+    <!-- LEFT: Info -->
+    <div class="contact-info reveal">
+      <h2>Where to <span class="accent">reach us.</span></h2>
+      <p class="intro">Karnataka headquartered. Open to discovery conversations with colleges, CSR partners, and district administrations.</p>
+
+      <div class="contact-block">
+        <div class="label">Headquarters</div>
+        <div class="value">Tejomarg Foundation</div>
+        <div class="sub">Karnataka, India</div>
+      </div>
+      <div class="contact-block">
+        <div class="label">Email</div>
+        <div class="value"><a href="mailto:contact@tejomarg.org">contact@tejomarg.org</a></div>
+        <div class="sub">Typical response time: 2 business days</div>
+      </div>
+      <div class="contact-block">
+        <div class="label">Telephone</div>
+        <div class="value">+91 — to be added</div>
+        <div class="sub">Mon–Fri, 10:00–18:00 IST</div>
+      </div>
+
+      <div class="routing">
+        <h4>Route Your Enquiry</h4>
+        <ul>
+          <li><strong>Engineering Colleges</strong> — Programme partnerships &amp; MoUs</li>
+          <li><strong>CSR &amp; Corporate Partners</strong> — Joint funding &amp; co-delivery</li>
+          <li><strong>Government &amp; District</strong> — Social-impact initiatives</li>
+          <li><strong>Media &amp; Press</strong> — Editorial &amp; interview requests</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="reveal" data-delay="1">
+      <form id="contact-form" class="contact-form-wrap" novalidate>
+        <h3>Send a message</h3>
+        <p>We read every enquiry. Please share enough context for us to route it well.</p>
+
+        <div id="form-status" role="status" aria-live="polite">
+          <strong>Thank you.</strong>
+          Your message has been received. We will respond within two business days.
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Name <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" required autocomplete="name"/>
+          </div>
+          <div class="field">
+            <label for="f-org">Organisation <span class="req">*</span></label>
+            <input id="f-org" name="organisation" type="text" required autocomplete="organization"/>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email <span class="req">*</span></label>
+          <input id="f-email" name="email" type="email" required autocomplete="email"/>
+        </div>
+
+        <div class="field">
+          <label for="f-type">Enquiry Type <span class="req">*</span></label>
+          <select id="f-type" name="enquiry_type" required>
+            <option value="" disabled selected>Select one…</option>
+            <option>Engineering College</option>
+            <option>CSR Partner</option>
+            <option>Government Department</option>
+            <option>Media &amp; Press</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-message">Message <span class="req">*</span></label>
+          <textarea id="f-message" name="message" required placeholder="Tell us about your institution and what you'd like to explore."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-arrow form-submit">Send Enquiry</button>
+        <p class="form-note">By submitting, you agree to be contacted by Tejomarg Foundation about your enquiry.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <img src="logo.svg" alt="Tejomarg Foundation"/>
+        <p class="tag">Building capacity. <em>Sustaining impact.</em></p>
+        <p style="max-width: 380px;">A Karnataka-based educational and social-impact foundation. Every engagement is formalized, governed, and reported — by design.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="initiatives.html">Initiatives</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Partner Network</h4>
+        <ul>
+          <li>KLS Gogte Institute of Technology</li>
+          <li>Penlio Edufab Pvt Ltd</li>
+          <li>KSST · SDM · Canara · MTD</li>
+          <li>District Administration, Belagavi</li>
+          <li>DDPI Belagavi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tejomarg Foundation. All rights reserved.</span>
+      <span>Designed for <strong>sustained impact</strong>.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

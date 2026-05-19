@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>About — Tejomarg Foundation</title>
+<meta name="description" content="A foundation built for sustained, measurable impact across Karnataka. Mission, principles, and partner network."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<style>
+  .about-hero {
+    background:
+      radial-gradient(800px 360px at 80% 30%, rgba(255,112,10,0.10), transparent 70%),
+      var(--tm-paper);
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--tm-gray-mist);
+  }
+
+  /* Mission */
+  .mission {
+    padding: 96px 0;
+  }
+  .mission-inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .mission .opener {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.2vw, 38px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--tm-ink);
+    margin-bottom: 40px;
+    letter-spacing: -0.025em;
+  }
+  .mission .opener .accent { color: var(--tm-orange); }
+  .mission p {
+    font-size: 18px;
+    color: var(--tm-gray-deep);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .mission p:first-of-type::first-letter {
+    font-family: var(--font-display);
+    font-size: 68px;
+    font-weight: 800;
+    float: left;
+    line-height: 0.85;
+    padding: 6px 14px 0 0;
+    color: var(--tm-orange);
+  }
+
+  /* Differentiators */
+  .diff-section {
+    background: var(--tm-off-white);
+    border-top: 1px solid var(--tm-gray-mist);
+    border-bottom: 1px solid var(--tm-gray-mist);
+    padding: 100px 0;
+  }
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .diff-item {
+    background: var(--tm-paper);
+    border-radius: 16px;
+    padding: 40px 36px;
+    border: 1.5px solid var(--tm-gray-mist);
+    position: relative;
+    transition: all .35s var(--tx);
+  }
+  .diff-item:hover {
+    border-color: var(--tm-ink);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .diff-item.featured {
+    grid-column: span 2;
+    background: var(--tm-ink);
+    color: var(--tm-paper);
+    border-color: var(--tm-ink);
+  }
+  .diff-item.featured h3 { color: var(--tm-paper); }
+  .diff-item.featured p { color: #B5B5B5; }
+  .diff-item.featured .diff-num {
+    color: var(--tm-orange);
+    background: rgba(255,112,10,0.15);
+  }
+  .diff-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--tm-orange-tint);
+    color: var(--tm-orange);
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 22px;
+    letter-spacing: -0.02em;
+  }
+  .diff-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+  .diff-item p {
+    color: var(--tm-gray);
+    font-size: 15.5px;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* Network */
+  .network-section {
+    padding: 100px 0;
+  }
+  .network-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 56px;
+    border-top: 1px solid var(--tm-gray-mist);
+    border-left: 1px solid var(--tm-gray-mist);
+  }
+  .network-cell {
+    padding: 40px 28px;
+    border-right: 1px solid var(--tm-gray-mist);
+    border-bottom: 1px solid var(--tm-gray-mist);
+    background: var(--tm-paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    transition: background .3s;
+    position: relative;
+  }
+  .network-cell:hover {
+    background: var(--tm-off-white);
+  }
+  .network-cell:hover::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--tm-orange);
+  }
+  .network-cell .role {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--tm-orange);
+    margin-bottom: 16px;
+  }
+  .network-cell h4 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--tm-ink);
+    letter-spacing: -0.02em;
+  }
+  .network-cell .loc {
+    font-size: 12px;
+    color: var(--tm-gray);
+    margin-top: 16px;
+    letter-spacing: 0.04em;
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 920px) {
+    .diff-grid, .network-grid { grid-template-columns: 1fr; }
+    .diff-item.featured { grid-column: span 1; }
+    .network-grid { border-left: 0; }
+    .network-cell { border-right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Tejomarg Foundation">
+      <img src="logo.svg" alt="Tejomarg Foundation"/>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="initiatives.html">Initiatives</a>
+      <a href="impact.html">Impact</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html" class="btn-nav">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="about-hero">
+  <div class="container">
+    <span class="eyebrow reveal">About the Foundation</span>
+    <h1 class="reveal" style="font-size: clamp(44px, 6.5vw, 84px); font-weight: 800; max-width: 1020px; letter-spacing: -0.03em; line-height: 1.0;">A foundation built for <span style="color: var(--tm-orange);">sustained, measurable impact.</span></h1>
+    <p class="reveal" style="font-size: 19px; color: var(--tm-gray-deep); max-width: 760px; margin-top: 28px;">Karnataka-based. Mission-driven. Programmes delivered through structured partnerships with industry, academic institutions, and district administrations.</p>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="mission">
+  <div class="container">
+    <div class="mission-inner reveal">
+      <p class="opener">Tejomarg Foundation exists to enable <span class="accent">sustained, large-scale capacity building</span> in the academic ecosystem — through programmes that leave institutions genuinely stronger than they were before.</p>
+      <p>The Foundation operates as an external programme provider, bringing structured, industry-grade offerings to engineering colleges, government schools, and partner institutions across Karnataka. Its work spans three streams: faculty development, student programmes, and social-impact initiatives in partnership with district administrations.</p>
+      <p>Every engagement is governed by a written agreement — typically an MoU — with a defined scope of work, milestone reviews, and a co-signed closure report. The Foundation favours models that convert short-term programmes into long-term opportunity: joint certifications under co-branded seals, technical curricula built with specialist partners, and prize structures that lock recognition into educational outcomes.</p>
+      <p>Tejomarg works alongside KSST, SDM Institutions, Canara Institutions, MTD, and has formalised its flagship MoU with KLS Gogte Institute of Technology, Belagavi. Programme delivery is co-led with technical specialists — most notably Penlio Edufab Pvt Ltd, Bengaluru — and supported by partnerships with the Belagavi District Commissioner's office and DDPI for social-impact work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFFERENTIATORS ============ -->
+<section class="diff-section">
+  <div class="container">
+    <span class="eyebrow reveal">What sets us apart</span>
+    <h2 class="section-title reveal" style="margin-bottom: 0;">Five <span class="accent">defining</span> characteristics.</h2>
+
+    <div class="diff-grid">
+      <div class="diff-item featured reveal">
+        <div class="diff-num">01</div>
+        <h3>Mission-driven, not commercial</h3>
+        <p>As a foundation, our orientation is towards long-term institutional impact, not short-term revenue. Every programme is designed to leave the partner institution genuinely stronger than it was before.</p>
+      </div>
+      <div class="diff-item reveal">
+        <div class="diff-num">02</div>
+        <h3>Industry-grade technical partners</h3>
+        <p>We co-deliver with specialist partners who bring real practitioner experience and production-grade tooling into the classroom — most notably Penlio Edufab Pvt Ltd for MLOps and AI programmes.</p>
+      </div>
+      <div class="diff-item reveal" data-delay="1">
+        <div class="diff-num">03</div>
+        <h3>Structured governance through MoUs</h3>
+        <p>Every engagement is formalised through an MoU with clear scope, defined responsibilities, milestone reviews, and a joint outcomes report. Nothing operates on a handshake.</p>
+      </div>
+      <div class="diff-item reveal">
+        <div class="diff-num">04</div>
+        <h3>Established institutional credibility</h3>
+        <p>Our track record across KSST, SDM Institutions, Canara Institutions, MTD, and KLS GIT — with partnerships extending into district administrations — gives partners the confidence of engaging a serious, well-regarded organisation.</p>
+      </div>
+      <div class="diff-item reveal" data-delay="1">
+        <div class="diff-num">05</div>
+        <h3>Co-branded outcomes</h3>
+        <p>Certifications, programme materials, and reports are co-branded under the seals of the Foundation, the technical partner, and the host institution — ensuring partner institutions receive appropriate visibility and credit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NETWORK ============ -->
+<section class="network-section">
+  <div class="container">
+    <span class="eyebrow reveal">Our Network</span>
+    <h2 class="section-title reveal" style="margin-bottom: 18px;">Partners across <span class="accent">academia, industry, and government.</span></h2>
+    <p class="section-sub reveal">A working network — every name represents an active engagement, a co-delivered programme, or a formal agreement.</p>
+
+    <div class="network-grid">
+      <div class="network-cell reveal">
+        <div>
+          <div class="role">◆ Flagship MoU</div>
+          <h4>KLS Gogte Institute of Technology</h4>
+        </div>
+        <div class="loc">BELAGAVI, KARNATAKA</div>
+      </div>
+      <div class="network-cell reveal" data-delay="1">
+        <div>
+          <div class="role">◆ Technical Partner</div>
+          <h4>Penlio Edufab Pvt Ltd</h4>
+        </div>
+        <div class="loc">BENGALURU, KARNATAKA</div>
+      </div>
+      <div class="network-cell reveal" data-delay="2">
+        <div>
+          <div class="role">Institutional Trust</div>
+          <h4>KSST</h4>
+        </div>
+        <div class="loc">KARNATAKA</div>
+      </div>
+      <div class="network-cell reveal" data-delay="3">
+        <div>
+          <div class="role">Institutional Trust</div>
+          <h4>SDM Institutions</h4>
+        </div>
+        <div class="loc">KARNATAKA</div>
+      </div>
+      <div class="network-cell reveal">
+        <div>
+          <div class="role">Institutional Trust</div>
+          <h4>Canara Institutions</h4>
+        </div>
+        <div class="loc">KARNATAKA</div>
+      </div>
+      <div class="network-cell reveal" data-delay="1">
+        <div>
+          <div class="role">Institutional Trust</div>
+          <h4>MTD</h4>
+        </div>
+        <div class="loc">KARNATAKA</div>
+      </div>
+      <div class="network-cell reveal" data-delay="2">
+        <div>
+          <div class="role">◆ Government Partner</div>
+          <h4>District Administration</h4>
+        </div>
+        <div class="loc">BELAGAVI</div>
+      </div>
+      <div class="network-cell reveal" data-delay="3">
+        <div>
+          <div class="role">◆ Government Partner</div>
+          <h4>DDPI</h4>
+        </div>
+        <div class="loc">BELAGAVI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <img src="logo.svg" alt="Tejomarg Foundation"/>
+        <p class="tag">Building capacity. <em>Sustaining impact.</em></p>
+        <p style="max-width: 380px;">A Karnataka-based educational and social-impact foundation. Every engagement is formalized, governed, and reported — by design.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="initiatives.html">Initiatives</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Partner Network</h4>
+        <ul>
+          <li>KLS Gogte Institute of Technology</li>
+          <li>Penlio Edufab Pvt Ltd</li>
+          <li>KSST · SDM · Canara · MTD</li>
+          <li>District Administration, Belagavi</li>
+          <li>DDPI Belagavi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tejomarg Foundation. All rights reserved.</span>
+      <span>Designed for <strong>sustained impact</strong>.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

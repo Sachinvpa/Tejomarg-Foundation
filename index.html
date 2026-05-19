@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tejomarg Foundation — Building Capacity. Sustaining Impact.</title>
+<meta name="description" content="Tejomarg Foundation designs and delivers structured, industry-grade capacity-building programs for engineering colleges and government schools across Karnataka."/>
+<meta property="og:title" content="Tejomarg Foundation"/>
+<meta property="og:description" content="Building Capacity. Sustaining Impact."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<style>
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    padding: 80px 0 100px;
+    overflow: hidden;
+    background: var(--tm-paper);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,112,10,0.08) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(120,120,120,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,120,120,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(48px, 7vw, 92px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    color: var(--tm-ink);
+  }
+  .hero h1 .accent {
+    color: var(--tm-orange);
+    display: block;
+  }
+  .hero .lead {
+    font-size: 19px;
+    color: var(--tm-gray-deep);
+    max-width: 560px;
+    margin: 32px 0 40px;
+    line-height: 1.65;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-meta {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--tm-gray-mist);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--tm-gray);
+    letter-spacing: 0.04em;
+  }
+  .hero-meta strong {
+    color: var(--tm-ink);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+  }
+  .hero-meta-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    padding: 6px 12px;
+    border: 1px solid var(--tm-gray-mist);
+    border-radius: 100px;
+    font-size: 12px;
+    color: var(--tm-gray-deep);
+    font-weight: 500;
+  }
+
+  /* Side panel */
+  .hero-panel {
+    background: var(--tm-ink);
+    color: var(--tm-paper);
+    border-radius: 24px;
+    padding: 44px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-panel::before {
+    content: "";
+    position: absolute;
+    bottom: -120px; right: -120px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,112,10,0.35), transparent 65%);
+    border-radius: 50%;
+  }
+  .hero-panel .label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tm-orange);
+    font-weight: 700;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  .hero-panel .label::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--tm-orange);
+    box-shadow: 0 0 0 4px rgba(255,112,10,0.2);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,112,10,0.4); }
+    100% { box-shadow: 0 0 0 12px rgba(255,112,10,0); }
+  }
+  .hero-panel .quote {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--tm-paper);
+    font-weight: 500;
+    margin-bottom: 28px;
+    position: relative;
+    letter-spacing: -0.01em;
+  }
+  .hero-panel .attr {
+    font-size: 13px;
+    color: var(--tm-gray-soft);
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+  .hero-panel .attr strong { color: var(--tm-orange); font-weight: 600; }
+
+  /* ===== STATS ===== */
+  .stats {
+    background: var(--tm-off-white);
+    border-top: 1px solid var(--tm-gray-mist);
+    border-bottom: 1px solid var(--tm-gray-mist);
+    padding: 72px 0;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+  .stat-item {
+    text-align: left;
+    position: relative;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--tm-ink);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: baseline;
+  }
+  .stat-num .plus {
+    color: var(--tm-orange);
+    margin-left: 2px;
+  }
+  .stat-label {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tm-gray);
+    font-weight: 600;
+  }
+
+  /* ===== PILLARS ===== */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .pillar {
+    background: var(--tm-paper);
+    border: 1.5px solid var(--tm-gray-mist);
+    border-radius: 16px;
+    padding: 40px 36px;
+    transition: all .35s var(--tx);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .pillar::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 0; height: 3px;
+    background: var(--tm-orange);
+    transition: width .35s var(--tx);
+  }
+  .pillar:hover {
+    transform: translateY(-4px);
+    border-color: var(--tm-ink);
+    box-shadow: var(--shadow-lg);
+  }
+  .pillar:hover::before { width: 100%; }
+  .pillar-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--tm-orange-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    color: var(--tm-orange);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 22px;
+    transition: all .3s;
+  }
+  .pillar:hover .pillar-icon {
+    background: var(--tm-orange);
+    color: var(--tm-paper);
+  }
+  .pillar h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+  .pillar p {
+    color: var(--tm-gray);
+    font-size: 15px;
+    flex: 1;
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+  .pillar-link {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--tm-ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pillar-link::after {
+    content: "→";
+    color: var(--tm-orange);
+    transition: transform .25s;
+  }
+  .pillar:hover .pillar-link::after { transform: translateX(5px); }
+
+  /* ===== FEATURED IMPACT ===== */
+  .featured {
+    background: var(--tm-ink);
+    color: var(--tm-paper);
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    position: relative;
+  }
+  .featured .body {
+    padding: 64px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .featured .meta {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--tm-orange);
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .featured h3 {
+    font-size: clamp(28px, 3.6vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 22px;
+    color: var(--tm-paper);
+    letter-spacing: -0.02em;
+  }
+  .featured h3 .accent { color: var(--tm-orange); }
+  .featured p {
+    color: #B5B5B5;
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .featured .img {
+    background:
+      linear-gradient(135deg, rgba(26,26,26,0.20), rgba(255,112,10,0.30)),
+      url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80") center/cover;
+    min-height: 440px;
+    position: relative;
+  }
+  .featured .img::after {
+    content: "";
+    position: absolute;
+    top: 28px; right: 28px;
+    width: 60px; height: 60px;
+    border: 2px solid var(--tm-orange);
+    border-radius: 50%;
+  }
+
+  /* ===== CTA STRIP ===== */
+  .cta-strip {
+    background: var(--tm-orange);
+    color: var(--tm-paper);
+    padding: 88px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-strip::before {
+    content: "";
+    position: absolute;
+    right: -150px; top: -150px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 65%);
+  }
+  .cta-strip::after {
+    content: "";
+    position: absolute;
+    left: -100px; bottom: -100px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,0,0,0.15), transparent 65%);
+  }
+  .cta-strip-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .cta-strip h2 {
+    color: var(--tm-paper);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    max-width: 720px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .cta-strip .btn-primary {
+    background: var(--tm-ink);
+    color: var(--tm-paper);
+  }
+  .cta-strip .btn-primary:hover {
+    background: var(--tm-paper);
+    color: var(--tm-ink);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.20);
+  }
+
+  @media (max-width: 920px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .featured { grid-template-columns: 1fr; }
+    .featured .img { min-height: 280px; }
+    .featured .body { padding: 40px 28px; }
+    .hero-panel { padding: 36px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Tejomarg Foundation">
+      <img src="logo.svg" alt="Tejomarg Foundation"/>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="initiatives.html">Initiatives</a>
+      <a href="impact.html">Impact</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="btn-nav">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="reveal">
+      <span class="eyebrow">Karnataka · Educational Foundation</span>
+      <h1>Building Capacity.<span class="accent">Sustaining Impact.</span></h1>
+      <p class="lead">Tejomarg Foundation partners with engineering colleges, government schools, and district administrations across Karnataka to deliver structured, industry-grade capacity-building programs — measured in outcomes, not events.</p>
+      <div class="hero-ctas">
+        <a href="initiatives.html" class="btn btn-primary btn-arrow">Explore Initiatives</a>
+        <a href="contact.html" class="btn btn-outline">Partner With Us</a>
+      </div>
+      <div class="hero-meta">
+        <strong>Trusted by</strong>
+        <div class="hero-meta-pills">
+          <span class="pill">KLS GIT</span>
+          <span class="pill">SDM</span>
+          <span class="pill">KSST</span>
+          <span class="pill">Canara</span>
+          <span class="pill">DDPI Belagavi</span>
+        </div>
+      </div>
+    </div>
+    <aside class="hero-panel reveal" data-delay="2">
+      <div class="label">Foundation Charter</div>
+      <p class="quote">"Every engagement leaves the institution genuinely stronger than it was before — that is the only standard we measure ourselves against."</p>
+      <p class="attr"><strong>Tejomarg Foundation</strong> · Operating Principle, 2025</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num"><span data-count="8" data-suffix="">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Institutional Partners</div>
+      </div>
+      <div class="stat-item reveal" data-delay="1">
+        <div class="stat-num"><span data-count="12" data-suffix="">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Programs Delivered</div>
+      </div>
+      <div class="stat-item reveal" data-delay="2">
+        <div class="stat-num"><span data-count="200" data-suffix="">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Faculty Trained</div>
+      </div>
+      <div class="stat-item reveal" data-delay="3">
+        <div class="stat-num"><span data-count="1500" data-suffix="">0</span><span class="plus">+</span></div>
+        <div class="stat-label">Students Reached</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section class="section">
+  <div class="container">
+    <span class="eyebrow reveal">What We Do</span>
+    <h2 class="section-title reveal">Three pillars of <span class="accent">sustained</span> capacity building.</h2>
+    <p class="section-sub reveal">Every program is co-delivered with industry-grade partners, governed by an MoU, and closed with a jointly-signed outcomes report.</p>
+
+    <div class="pillars-grid">
+      <article class="pillar reveal">
+        <div class="pillar-icon">01</div>
+        <h3>Faculty Development</h3>
+        <p>Hands-on, industry-grade FDPs co-delivered with technical specialists — including MLOps, AI/ML, and applied data science — bringing production tooling into the classroom.</p>
+        <a href="initiatives.html#mlops" class="pillar-link">View MLOps Program</a>
+      </article>
+      <article class="pillar reveal" data-delay="1">
+        <div class="pillar-icon">02</div>
+        <h3>Student Programs</h3>
+        <p>Semester-length Innovation and Design Thinking programs equip engineering students with structured methods and applied project work that translates to employability.</p>
+        <a href="initiatives.html#idt" class="pillar-link">View IDT Program</a>
+      </article>
+      <article class="pillar reveal" data-delay="2">
+        <div class="pillar-icon">03</div>
+        <h3>Social Impact</h3>
+        <p>District-level AI hackathons for government school students. Prize money is held as Fixed Deposits until age 18, withdrawable only for education.</p>
+        <a href="initiatives.html#hackathon" class="pillar-link">View Hackathon</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="featured reveal">
+      <div class="img" role="img" aria-label="Engineering students at a partner institution"></div>
+      <div class="body">
+        <div class="meta">◆ Latest Milestone · 2026</div>
+        <h3>A formal MoU with <span class="accent">KLS Gogte Institute of Technology</span>, Belagavi.</h3>
+        <p>A long-term framework agreement establishing a structured pathway for joint program delivery, faculty development, and student capacity-building — a model the Foundation intends to extend across its institutional network.</p>
+        <div>
+          <a href="impact.html" class="btn btn-primary btn-arrow">Read Impact Reports</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA STRIP ============ -->
+<section class="cta-strip">
+  <div class="container cta-strip-inner">
+    <h2>Bring a Tejomarg program to your institution.</h2>
+    <a href="contact.html" class="btn btn-primary btn-arrow">Begin a Conversation</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <img src="logo.svg" alt="Tejomarg Foundation"/>
+        <p class="tag">Building capacity. <em>Sustaining impact.</em></p>
+        <p style="max-width: 380px;">A Karnataka-based educational and social-impact foundation. Every engagement is formalized, governed, and reported — by design.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="initiatives.html">Initiatives</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Partner Network</h4>
+        <ul>
+          <li>KLS Gogte Institute of Technology</li>
+          <li>Penlio Edufab Pvt Ltd</li>
+          <li>KSST · SDM · Canara · MTD</li>
+          <li>District Administration, Belagavi</li>
+          <li>DDPI Belagavi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tejomarg Foundation. All rights reserved.</span>
+      <span>Designed for <strong>sustained impact</strong>.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

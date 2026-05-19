@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Initiatives — Tejomarg Foundation</title>
+<meta name="description" content="Tejomarg Foundation's flagship programs: MLOps FDP, Innovation & Design Thinking, AI Hackathons for Government Schools, and institutional MoU engagements."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<style>
+  .initiatives-hero {
+    background:
+      radial-gradient(700px 320px at 90% 20%, rgba(255,112,10,0.10), transparent 70%),
+      var(--tm-paper);
+    padding: 88px 0 56px;
+    border-bottom: 1px solid var(--tm-gray-mist);
+  }
+
+  .programs-list { padding: 80px 0; }
+  .program {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 72px 0;
+    border-bottom: 1px solid var(--tm-gray-mist);
+  }
+  .program:last-child { border-bottom: 0; }
+  .program.reverse .program-img { order: 2; }
+
+  .program-img {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: var(--tm-gray-haze);
+  }
+  .program-img img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .program-img::after {
+    content: "";
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 64px; height: 64px;
+    border: 2px solid var(--tm-orange);
+    border-radius: 50%;
+    background: rgba(255,112,10,0.1);
+    backdrop-filter: blur(8px);
+  }
+
+  .program-num {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--tm-orange);
+    letter-spacing: 0.2em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .program h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 22px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .program h2 .accent { color: var(--tm-orange); }
+  .program .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--tm-orange-tint);
+    color: var(--tm-orange-deep);
+    padding: 7px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .program .tag::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--tm-orange);
+    border-radius: 50%;
+  }
+  .program p {
+    color: var(--tm-gray-deep);
+    font-size: 16.5px;
+    line-height: 1.7;
+  }
+  .program ul {
+    list-style: none; padding: 0; margin: 28px 0;
+    border-top: 1px solid var(--tm-gray-mist);
+    padding-top: 24px;
+  }
+  .program ul li {
+    padding: 11px 0 11px 28px;
+    position: relative;
+    font-size: 15px;
+    color: var(--tm-gray-deep);
+    border-bottom: 1px solid var(--tm-gray-mist);
+  }
+  .program ul li:last-child { border-bottom: 0; }
+  .program ul li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 19px;
+    width: 14px; height: 2px;
+    background: var(--tm-orange);
+  }
+  .program ul li strong {
+    color: var(--tm-ink);
+    font-weight: 600;
+    display: inline-block;
+    min-width: 130px;
+  }
+  .program-actions { margin-top: 32px; }
+
+  @media (max-width: 920px) {
+    .program { grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
+    .program.reverse .program-img { order: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Tejomarg Foundation">
+      <img src="logo.svg" alt="Tejomarg Foundation"/>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="initiatives.html" class="active">Initiatives</a>
+      <a href="impact.html">Impact</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="btn-nav">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="initiatives-hero">
+  <div class="container">
+    <span class="eyebrow reveal">Our Programs</span>
+    <h1 class="reveal" style="font-size: clamp(44px, 6.5vw, 80px); font-weight: 800; max-width: 1000px; letter-spacing: -0.03em; line-height: 1.0;">Programs designed to <span style="color: var(--tm-orange);">leave institutions stronger.</span></h1>
+    <p class="reveal" style="font-size: 19px; color: var(--tm-gray-deep); max-width: 740px; margin-top: 28px;">Four flagship initiatives across faculty development, student capacity-building, social impact, and institutional partnerships — each formalized through an MoU and co-delivered with specialist partners.</p>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="programs-list">
+  <div class="container">
+
+    <article id="mlops" class="program reveal">
+      <div class="program-img">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&q=80" alt="Faculty members working with laptops in a hands-on workshop"/>
+      </div>
+      <div>
+        <div class="program-num">Program 01</div>
+        <span class="tag">Faculty Development</span>
+        <h2>MLOps <span class="accent">Faculty Development</span> Program</h2>
+        <p>A 3-day, 18-hour hands-on FDP co-delivered with Penlio Edufab Pvt Ltd, walking faculty through the complete MLOps lifecycle: version control, automation, containerization, deployment, and monitoring. Every participant leaves with a fully working end-to-end pipeline.</p>
+        <ul>
+          <li><strong>Co-delivered with</strong> Penlio Edufab Pvt Ltd</li>
+          <li><strong>Format</strong> 3 days × 6 hours, on-campus, lab-based</li>
+          <li><strong>Outcome</strong> Joint certification under both seals</li>
+          <li><strong>Audience</strong> CS &amp; allied engineering faculty</li>
+        </ul>
+        <div class="program-actions">
+          <a href="contact.html" class="btn btn-primary btn-arrow">Express Interest</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="idt" class="program reverse reveal">
+      <div class="program-img">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80" alt="Students collaborating around a whiteboard"/>
+      </div>
+      <div>
+        <div class="program-num">Program 02</div>
+        <span class="tag">Student Programs</span>
+        <h2>Innovation &amp; <span class="accent">Design Thinking</span> Program</h2>
+        <p>A semester-length program for engineering students that combines structured innovation methodology, design thinking frameworks, and applied project work — bridging classroom learning with the kind of problem-solving employers actually look for.</p>
+        <ul>
+          <li><strong>Duration</strong> One academic semester</li>
+          <li><strong>Format</strong> Workshop modules + applied capstone</li>
+          <li><strong>Outcome</strong> Project portfolio + certification</li>
+          <li><strong>Audience</strong> Engineering students (any branch)</li>
+        </ul>
+        <div class="program-actions">
+          <a href="contact.html" class="btn btn-primary btn-arrow">Express Interest</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="hackathon" class="program reveal">
+      <div class="program-img">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80" alt="Schoolchildren in a classroom"/>
+      </div>
+      <div>
+        <div class="program-num">Program 03</div>
+        <span class="tag">Social Impact</span>
+        <h2>AI Hackathon for <span class="accent">Government Schools</span></h2>
+        <p>A district-level hackathon designed jointly with the Belagavi District Commissioner's office and DDPI, introducing government school students to applied AI. Prize money is held as a Fixed Deposit in each winner's name, locked until age 18 and withdrawable only for education.</p>
+        <ul>
+          <li><strong>Co-designed with</strong> District Commissioner · DDPI Belagavi</li>
+          <li><strong>Audience</strong> Government school students</li>
+          <li><strong>Prize structure</strong> FDs locked till age 18, education only</li>
+          <li><strong>Goal</strong> Convert recognition into long-term opportunity</li>
+        </ul>
+        <div class="program-actions">
+          <a href="contact.html" class="btn btn-primary btn-arrow">Express Interest</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="mou" class="program reverse reveal">
+      <div class="program-img">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80" alt="Two parties signing a formal document"/>
+      </div>
+      <div>
+        <div class="program-num">Program 04</div>
+        <span class="tag">Institutional MoUs</span>
+        <h2>Institutional <span class="accent">MoU Engagements</span></h2>
+        <p>Long-term, structured partnerships with engineering colleges — formalized through a Memorandum of Understanding that defines scope, governance, milestones, and joint reporting. The flagship engagement is with KLS Gogte Institute of Technology, Belagavi.</p>
+        <ul>
+          <li><strong>Structure</strong> MoU with defined scope and milestones</li>
+          <li><strong>Governance</strong> Joint steering committee + outcomes report</li>
+          <li><strong>Flagship</strong> KLS GIT, Belagavi</li>
+          <li><strong>Network</strong> KSST · SDM · Canara · MTD</li>
+        </ul>
+        <div class="program-actions">
+          <a href="contact.html" class="btn btn-primary btn-arrow">Initiate an MoU</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <img src="logo.svg" alt="Tejomarg Foundation"/>
+        <p class="tag">Building capacity. <em>Sustaining impact.</em></p>
+        <p style="max-width: 380px;">A Karnataka-based educational and social-impact foundation. Every engagement is formalized, governed, and reported — by design.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="initiatives.html">Initiatives</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Partner Network</h4>
+        <ul>
+          <li>KLS Gogte Institute of Technology</li>
+          <li>Penlio Edufab Pvt Ltd</li>
+          <li>KSST · SDM · Canara · MTD</li>
+          <li>District Administration, Belagavi</li>
+          <li>DDPI Belagavi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tejomarg Foundation. All rights reserved.</span>
+      <span>Designed for <strong>sustained impact</strong>.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

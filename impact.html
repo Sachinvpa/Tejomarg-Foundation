@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Impact Reports — Tejomarg Foundation</title>
+<meta name="description" content="Every Tejomarg Foundation engagement closes with a jointly-signed outcomes report. Transparency is built into governance."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<style>
+  .impact-hero {
+    background:
+      radial-gradient(700px 320px at 10% 30%, rgba(255,112,10,0.10), transparent 70%),
+      var(--tm-paper);
+    padding: 88px 0 56px;
+    border-bottom: 1px solid var(--tm-gray-mist);
+  }
+
+  /* Feature card */
+  .feature-card {
+    background: var(--tm-ink);
+    color: var(--tm-paper);
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    margin: 80px 0;
+    position: relative;
+  }
+  .feature-card .img {
+    min-height: 500px;
+    background:
+      linear-gradient(160deg, rgba(26,26,26,0.20), rgba(255,112,10,0.30) 80%),
+      url("https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1400&q=80") center/cover;
+    position: relative;
+  }
+  .feature-card .img::after {
+    content: "Latest Milestone";
+    position: absolute;
+    top: 28px; left: 28px;
+    background: var(--tm-orange);
+    color: var(--tm-paper);
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-radius: 100px;
+  }
+  .feature-card .body {
+    padding: 64px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .feature-card .date {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--tm-orange);
+    letter-spacing: 0.05em;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .feature-card h2 {
+    font-size: clamp(30px, 3.8vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--tm-paper);
+    letter-spacing: -0.02em;
+  }
+  .feature-card h2 .accent { color: var(--tm-orange); }
+  .feature-card p {
+    color: #B5B5B5;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .feature-card .actions { margin-top: 16px; }
+
+  /* Reports grid */
+  .reports-section {
+    padding: 80px 0;
+  }
+  .reports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .report-card {
+    background: var(--tm-paper);
+    border: 1.5px solid var(--tm-gray-mist);
+    border-radius: 16px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s var(--tx);
+    position: relative;
+    overflow: hidden;
+  }
+  .report-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--tm-orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s var(--tx);
+  }
+  .report-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--tm-ink);
+  }
+  .report-card:hover::before { transform: scaleX(1); }
+
+  .pdf-badge {
+    width: 56px; height: 56px;
+    background: var(--tm-orange-tint);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    color: var(--tm-orange);
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    transition: all .3s;
+  }
+  .report-card:hover .pdf-badge {
+    background: var(--tm-orange);
+    color: var(--tm-paper);
+  }
+  .report-card .date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--tm-gray);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .report-card h3 {
+    font-size: 22px;
+    margin-bottom: 14px;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+  .report-card p {
+    font-size: 14.5px;
+    color: var(--tm-gray);
+    flex: 1;
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+  .download-link {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--tm-ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .download-link::after {
+    content: "↓";
+    color: var(--tm-orange);
+    font-size: 16px;
+    transition: transform .25s;
+  }
+  .report-card:hover .download-link::after { transform: translateY(3px); }
+
+  /* Governance */
+  .governance-section {
+    padding: 80px 0;
+  }
+  .governance {
+    background: var(--tm-off-white);
+    border-radius: 24px;
+    padding: 80px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 72px;
+    align-items: start;
+    border: 1px solid var(--tm-gray-mist);
+  }
+  .governance h2 {
+    font-size: clamp(30px, 3.6vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+  .governance h2 .accent { color: var(--tm-orange); }
+  .governance .principles { counter-reset: gov; }
+  .governance .principle {
+    padding: 26px 0;
+    border-top: 1px solid var(--tm-gray-mist);
+    counter-increment: gov;
+    position: relative;
+    padding-left: 64px;
+  }
+  .governance .principle:last-child {
+    border-bottom: 1px solid var(--tm-gray-mist);
+  }
+  .governance .principle::before {
+    content: counter(gov, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 26px;
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--tm-orange);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .governance .principle h4 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.015em;
+  }
+  .governance .principle p {
+    color: var(--tm-gray);
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 920px) {
+    .feature-card { grid-template-columns: 1fr; }
+    .feature-card .img { min-height: 280px; }
+    .feature-card .body { padding: 40px 28px; }
+    .reports-grid { grid-template-columns: 1fr; }
+    .governance { grid-template-columns: 1fr; padding: 48px 28px; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="Tejomarg Foundation">
+      <img src="logo.svg" alt="Tejomarg Foundation"/>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="initiatives.html">Initiatives</a>
+      <a href="impact.html" class="active">Impact</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="btn-nav">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="impact-hero">
+  <div class="container">
+    <span class="eyebrow reveal">Outcomes &amp; Reports</span>
+    <h1 class="reveal" style="font-size: clamp(44px, 6.5vw, 80px); font-weight: 800; max-width: 1000px; letter-spacing: -0.03em; line-height: 1.0;">Transparency is <span style="color: var(--tm-orange);">built in.</span></h1>
+    <p class="reveal" style="font-size: 19px; color: var(--tm-gray-deep); max-width: 740px; margin-top: 28px;">Every Tejomarg engagement closes with a jointly-signed outcomes report. Programs are governed by milestone reviews, beneficiary tracking, and co-signed closure — not handshakes.</p>
+  </div>
+</section>
+
+<!-- ============ FEATURE CARD ============ -->
+<section class="container reveal">
+  <div class="feature-card">
+    <div class="img" role="img" aria-label="Formal signing of an institutional agreement"></div>
+    <div class="body">
+      <div class="date">JANUARY 2026 · BELAGAVI, KARNATAKA</div>
+      <h2>MoU signed with <span class="accent">KLS Gogte Institute of Technology</span>, Belagavi.</h2>
+      <p>A long-term framework agreement establishing the structure for joint program delivery, faculty development, and student capacity-building. The agreement defines scope, designated representatives, indicative areas of cooperation, governance cadence, and joint reporting obligations.</p>
+      <p>The KLS GIT engagement is the Foundation's flagship MoU and serves as the template for institutional partnerships now in discussion across the Karnataka network.</p>
+      <div class="actions">
+        <a href="#" class="btn btn-primary btn-arrow">Read the MoU Summary</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REPORTS GRID ============ -->
+<section class="reports-section">
+  <div class="container">
+    <span class="eyebrow reveal">Document Library</span>
+    <h2 class="section-title reveal">Recent <span class="accent">Reports</span></h2>
+    <p class="section-sub reveal">Engagement closure reports, programme outcomes, and the annual review.</p>
+
+    <div class="reports-grid">
+      <article class="report-card reveal">
+        <div class="pdf-badge">PDF</div>
+        <div class="date">APRIL 2026</div>
+        <h3>MLOps FDP 2026 — Outcomes Report</h3>
+        <p>Joint closure report from the Faculty Development Program delivered in partnership with Penlio Edufab Pvt Ltd. Participant outcomes, assessment results, and curriculum hand-off.</p>
+        <a href="#" class="download-link">Download Report</a>
+      </article>
+      <article class="report-card reveal" data-delay="1">
+        <div class="pdf-badge">PDF</div>
+        <div class="date">DECEMBER 2025</div>
+        <h3>AI Hackathon 2025 — Impact Brief</h3>
+        <p>District-level hackathon for government school students, co-designed with the Belagavi District Commissioner's office. Beneficiary list, FD structure, and follow-on tracking.</p>
+        <a href="#" class="download-link">Download Report</a>
+      </article>
+      <article class="report-card reveal" data-delay="2">
+        <div class="pdf-badge">PDF</div>
+        <div class="date">MARCH 2026</div>
+        <h3>Annual Foundation Report 2025</h3>
+        <p>The Foundation's first consolidated annual review — programme summary, financial principles, partner network, and the year ahead.</p>
+        <a href="#" class="download-link">Download Report</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOVERNANCE ============ -->
+<section class="governance-section">
+  <div class="container">
+    <div class="governance reveal">
+      <div>
+        <span class="eyebrow">Governance</span>
+        <h2>How we <span class="accent">report</span>.</h2>
+        <p style="color: var(--tm-gray); margin-top: 22px; font-size: 16px;">Four principles, applied to every engagement — from a three-day FDP to a multi-year MoU.</p>
+      </div>
+      <div class="principles">
+        <div class="principle">
+          <h4>Scope written, not implied</h4>
+          <p>Every engagement begins with a written scope of work and a defined success criterion. Verbal commitments are not enough.</p>
+        </div>
+        <div class="principle">
+          <h4>Milestone reviews</h4>
+          <p>Mid-engagement reviews against the original scope — co-signed by the Foundation and the partner institution.</p>
+        </div>
+        <div class="principle">
+          <h4>Co-signed closure</h4>
+          <p>No engagement is closed unilaterally. A joint closure report is the only acceptable terminal artifact.</p>
+        </div>
+        <div class="principle">
+          <h4>Beneficiary tracking</h4>
+          <p>Where applicable, beneficiaries are tracked beyond the close of the programme — particularly in the case of FD-locked hackathon prizes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <img src="logo.svg" alt="Tejomarg Foundation"/>
+        <p class="tag">Building capacity. <em>Sustaining impact.</em></p>
+        <p style="max-width: 380px;">A Karnataka-based educational and social-impact foundation. Every engagement is formalized, governed, and reported — by design.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="initiatives.html">Initiatives</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Partner Network</h4>
+        <ul>
+          <li>KLS Gogte Institute of Technology</li>
+          <li>Penlio Edufab Pvt Ltd</li>
+          <li>KSST · SDM · Canara · MTD</li>
+          <li>District Administration, Belagavi</li>
+          <li>DDPI Belagavi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Tejomarg Foundation. All rights reserved.</span>
+      <span>Designed for <strong>sustained impact</strong>.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

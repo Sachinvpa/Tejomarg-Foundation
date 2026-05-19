@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Tejomarg Foundation">
+  <!-- Background tile -->
+  <rect width="64" height="64" rx="14" ry="14" fill="#FF700A"/>
+  <!-- T glyph in white, scaled from the original logo's T shape (M307...506...354...1024...) -->
+  <!-- Original T from the logo: horizontal bar 307–1024 at top, stem 574–757 -->
+  <!-- Centered & scaled into a 64x64 box with 12px padding -->
+  <path d="M14 18 V13 H50 V18 H35 V51 H29 V18 H14 Z" fill="#FFFFFF"/>
+</svg>
